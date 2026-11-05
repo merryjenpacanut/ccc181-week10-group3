@@ -23,15 +23,15 @@ npm run build        # must finish with no errors before you submit
 
 | Item | Your answer |
 | --- | --- |
-| Group number | |
-| Section | |
-| Repository URL | |
+| Group number | Group - 3 |
+| Section | IT3 - B |
+| Repository URL | https://github.com/merryjenpacanut/ccc181-week10-group3 |
 
 ## Members (each member fills in their own row in their own commit)
 
 | Member | Name | GitHub username | CSS file | What I did |
 | --- | --- | --- | --- | --- |
-| 1 (leader) | | | `base.css` | |
+| 1 (leader) | Merry Jen M. Pacanut | merryjenpacanut | `base.css` | Wrote the phone layout, 768px padding, 1024px two-column grid and 1280px centered container; added the viewport tag |
 | 2 | | | `nav.css` | |
 | 3 | | | `form.css` | |
 
