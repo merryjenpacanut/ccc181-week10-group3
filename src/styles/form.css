@@ -297,3 +297,13 @@
     flex-direction: row;
   }
 }
+
+@media (min-width: 1024px) {
+  .login-card {
+    padding: 2.5rem;
+  }
+
+  .login-card__title {
+    font-size: 1.75rem;
+  }
+}
