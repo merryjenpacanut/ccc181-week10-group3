@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const bcrypt = require('bcryptjs');
 
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET;
@@ -14,6 +15,16 @@ if (!JWT_SECRET) {
 const app = express();
 app.use(cors({ origin: CLIENT_ORIGIN }));
 app.use(express.json());
+
+// In-memory demo users list
+const users = [
+  {
+    id: 1,
+    name: 'Demo Student',
+    email: 'student@campusconnect.test',
+    passwordHash: bcrypt.hashSync('Campus26', 10),
+  },
+];
 
 // GET /api/v1/health
 app.get('/api/v1/health', (req, res) => {
