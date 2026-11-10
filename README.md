@@ -66,3 +66,7 @@ Screenshots are in `screenshots/` as `360.png`, `768.png`, `1024.png`, `1280.png
 ## What our group learned (leader writes this last)
 
 > We learned that mobile-first means writing the phone layout first and then using min-width media queries to add changes as the screen gets wider, so each breakpoint only adds to the layout instead of undoing it. Without the viewport meta tag, our page looked tiny and zoomed out on the phone, and after adding it the page used the real phone width, so the media queries could work. We used CSS Grid for the page layout and the footer, and Flexbox for the navbar and the form, which made it easy to turn a stacked column into a row at 768px and 1024px. We also made sure every tap target was at least 48px tall and that each hover style also had a focus style. On the GitHub side, we learned to work on our own branches, open pull requests, and have a different teammate review them. We also ran into problems such as a rejected push, a deleted branch and a reverted pull request, and we fixed them by checking the Git log, restoring the file from the right branch and pulling main after every merge.
+
+
+
+
