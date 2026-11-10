@@ -1,0 +1,67 @@
+/* PART 2 (Member 3): API messages and Welcome screen. Mobile-first. */
+
+.auth-error {
+  background: #fdecec;
+  color: #b00020;
+  border: 1px solid #b00020;
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  overflow-wrap: anywhere;
+}
+
+.welcome {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  text-align: center;
+  overflow-wrap: anywhere;
+}
+
+.welcome__title {
+  margin: 0 0 0.5rem;
+  color: var(--navy);
+  font-size: 1.5rem;
+}
+
+.welcome__email {
+  margin: 0 0 1rem;
+  color: var(--muted);
+}
+
+.welcome__logout {
+  width: 100%;
+  min-height: 48px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  background: var(--navy);
+  color: #fff;
+  border: 0;
+  border-radius: var(--radius);
+}
+
+.welcome__logout:hover,
+.welcome__logout:focus-visible {
+  outline: 3px solid var(--navy);
+  outline-offset: 2px;
+}
+
+@media (min-width: 768px) {
+  .welcome {
+    max-width: 32rem;
+    padding: 2rem;
+  }
+  .welcome__logout {
+    width: auto;
+    padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .welcome {
+    padding: 2.5rem;
+  }
+}
