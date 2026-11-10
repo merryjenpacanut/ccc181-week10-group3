@@ -5,13 +5,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 
 const PORT = process.env.PORT || 3000;
-const JWT_SECRET = process.env.JWT_SECRET;
+const JWT_SECRET = process.env.JWT_SECRET || 'campusconnect-default-secret-key-2026';
 const CLIENT_ORIGIN = process.env.CLIENT_ORIGIN || 'http://localhost:5173';
-
-if (!JWT_SECRET) {
-  console.error('JWT_SECRET is missing. Copy .env.example to .env first.');
-  process.exit(1);
-}
 
 const app = express();
 app.use(cors({ origin: CLIENT_ORIGIN }));
@@ -27,7 +22,6 @@ const users = [
 ];
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
 
 function authenticateToken(req, res, next) {
   const authHeader = req.headers['authorization'];
@@ -45,15 +39,12 @@ function authenticateToken(req, res, next) {
   }
 }
 
-
 app.get('/api/v1/health', (req, res) => {
   res.status(200).json({ status: 'ok' });
 });
 
-
 app.post('/api/v1/sessions', (req, res) => {
   const { email, password } = req.body || {};
-
 
   if (
     typeof email !== 'string' ||
@@ -68,11 +59,9 @@ app.post('/api/v1/sessions', (req, res) => {
   const normalizedEmail = email.trim().toLowerCase();
   const user = users.find((u) => u.email.toLowerCase() === normalizedEmail);
 
-
   if (!user || !bcrypt.compareSync(password, user.passwordHash)) {
     return res.status(401).json({ error: 'Invalid email or password.' });
   }
-
 
   const token = jwt.sign(
     { id: user.id, name: user.name, email: user.email },
@@ -90,7 +79,6 @@ app.post('/api/v1/sessions', (req, res) => {
   });
 });
 
-
 app.get('/api/v1/users/me', authenticateToken, (req, res) => {
   const user = users.find((u) => u.id === req.user.id);
   if (!user) {
@@ -104,11 +92,9 @@ app.get('/api/v1/users/me', authenticateToken, (req, res) => {
   });
 });
 
-
 app.use((req, res) => {
   res.status(404).json({ error: 'Not found.' });
 });
-
 
 app.use((err, req, res, next) => {
   console.error(err);
@@ -116,5 +102,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`API running on http://localhost:${PORT}`);
+  console.log(API running on http://localhost:${PORT});
 });
